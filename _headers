@@ -1,0 +1,4 @@
+/version.json
+  Cache-Control: no-store
+/prompt.txt
+  Cache-Control: no-cache
