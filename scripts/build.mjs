@@ -1,0 +1,10 @@
+import {mkdir,copyFile,writeFile,readFile} from 'node:fs/promises';
+import {execFileSync} from 'node:child_process';
+import vm from 'node:vm';
+const html=await readFile('index.html','utf8');
+for(const match of html.matchAll(/<script>([\s\S]*?)<\/script>/g)) new vm.Script(match[1]);
+await mkdir('dist',{recursive:true});
+for(const file of ['index.html','prompt.txt']) await copyFile(file,`dist/${file}`);
+const commit=process.env.CF_PAGES_COMMIT_SHA||execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
+await writeFile('dist/version.json',JSON.stringify({commit},null,2)+'\n');
+console.log(`Built static showroom at ${commit}`);
