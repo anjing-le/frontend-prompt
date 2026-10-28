@@ -6,3 +6,5 @@
 - 发布前执行 npm run build 和 git diff --check。区分 push、Cloudflare 部署成功、线上内容匹配与实际浏览器检查。
 - 生产分支 main。Git 作者和提交者均为 anjing-le <245548353+anjing-le@users.noreply.github.com>，只配置仓库本地身份。SSH 使用 ~/.ssh/id_rsa_anjing，不依赖默认身份。
 - 不提交凭据或本地环境文件。
+
+- `prompt.txt` 只用于复用视觉与交互效果，不包含创建样板间侧栏、术语清单、引线和测试控件的要求。讲解层仅属于本网站；查看、复制、下载使用同一份提示词，不从讲解文案拼接导出。
